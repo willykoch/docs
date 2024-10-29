@@ -16,8 +16,8 @@ I denne forenklede flyten kan en syntetisk testbruker logges inn automatisk med 
 
  Parameter | Beskrivelse | Eksempel
  -|-|-|
- login_hint | Angir hvilken syntetisk personidentifikator som skal brukes samt sikkerhetsnivå som ønskes | `login_hint=testid:12345678901_idporten-loa-high`
- scope      | Angir hvilke scope som skal implisitt samtykkes til | `scope=openid profile mitt:api_scope`
+ `login_hint` | Angir hvilken syntetisk personidentifikator som skal brukes samt sikkerhetsnivå som ønskes | `login_hint=testid:12345678901_idporten-loa-high`
+ `scope`      | Angir hvilke scope som skal implisitt samtykkes til | `scope=openid profile mitt:api_scope`
 
 Klienten leser authorization response fra location header og plukker ut code (og verifiserer state).  Klienten kaller deretter [token-endepunktet]({{site.baseurl}}/docs/idporten/oidc/oidc_protocol_token) på vanlig måte.
 
