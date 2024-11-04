@@ -108,6 +108,38 @@ Klienten leser authorization response fra location header og plukker ut code (og
   API->>Klient: Resultat av API-operasjon
  </div>
 
+Under er et eksempel med bruk av Curl.  Det kuttes litt i output for å tydeliggjøre relevant informasjon.
+
+Redirected authorization request simuleres med GET og authorization response finnes i response header location.  Innsending request:
+```
+ curl -v https://login.test.idporten.no/authorize\?scope\=openid%20profile%20apiscope\&client_id\=oidc_idporten_test_client\&redirect_uri\=https://oidc-test-client.test.tools.idporten.no/authorize/response\&response_type\=code\&state\=LzFinVZzwoTWWJNQyxCSspoBnVTh9Hk1ugJLmvKVPdU\&nonce\=iDyWdWH18O_lJxkdyPF28heGSBTz2Zwld9cO_GCI6f0\&acr_values\=idporten-loa-substantial\&ui_locales\=nb\&code_challenge_method\=S256\&code_challenge\=s2Zoo2UrS7PcGTZO7P9rPLaR0d-R-8OhbS4lSJxJDgw\&login_hint\=testid:28876895937_idporten-loa-substantial
+```
+Relevant fra response:
+```
+< HTTP/1.1 302 
+< set-cookie: IDPORTEN_AUTH=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; SameSite=Lax
+< set-cookie: SESSION=; Max-Age=0; Expires=Thu, 1 Jan 1970 00:00:00 GMT; Path=/; Secure; HttpOnly; SameSite=Lax
+< location: https://oidc-test-client.test.tools.idporten.no/authorize/response?code=Jj_5MDvtbaYM6k-K94S4wg.IcwLOy-CkPnDzlERTcZlKA&iss=https%3A%2F%2Ftest.idporten.no&state=LzFinVZzwoTWWJNQyxCSspoBnVTh9Hk1ugJLmvKVPdU
+```
+
+Plukk ut `code` og lag token request.
+```
+~ curl --location 'https://test.idporten.no/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Authorization: Basic *****' \
+--data-urlencode 'code=Jj_5MDvtbaYM6k-K94S4wg.IcwLOy-CkPnDzlERTcZlKA' \
+--data-urlencode 'grant_type=authorization_code' \
+--data-urlencode 'client_id=oidc_idporten_test_client' \
+--data-urlencode 'redirect_uri=https://oidc-test-client.test.tools.idporten.no/authorize/response' \
+--data-urlencode 'code_verifier=hITge41ZTC3OrdiokQsW2QivzMq01mg3IPxTpqTazZU'
+```
+Hent ut access_token fra response.
+```
+{"access_token":"...","refresh_token_expires_in":600,"refresh_token":"...","scope":"openid profile apiscope","id_token":"...","token_type":"Bearer","expires_in":120}
+```
+Bruk `access_token` mot API som skal testes.
+ 
+
 ## Manuell behandling
 
 Har du spesielle behov knyttet til testbrukere må du kontakte oss på servicedesk@digdir.no for manuell behandling.
