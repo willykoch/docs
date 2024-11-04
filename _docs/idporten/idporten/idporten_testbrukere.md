@@ -108,7 +108,7 @@ Klienten leser authorization response fra location header og plukker ut code (og
   API->>Klient: Resultat av API-operasjon
  </div>
 
-Under er et eksempel med bruk av Curl.  Det kuttes litt i output for å tydeliggjøre relevant informasjon,
+Under er et eksempel med bruk av Curl.  Det kuttes litt i output for å tydeliggjøre relevant informasjon.
 
 Redirected authorization request simuleres med GET og authorization response finnes i response header location.  Innsending request:
 ```
@@ -122,7 +122,7 @@ Relevant fra response:
 < location: https://oidc-test-client.test.tools.idporten.no/authorize/response?code=Jj_5MDvtbaYM6k-K94S4wg.IcwLOy-CkPnDzlERTcZlKA&iss=https%3A%2F%2Ftest.idporten.no&state=LzFinVZzwoTWWJNQyxCSspoBnVTh9Hk1ugJLmvKVPdU
 ```
 
-Plukk ut code og lag token request.
+Plukk ut `code` og lag token request.
 ```
 ~ curl --location 'https://test.idporten.no/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -132,9 +132,12 @@ Plukk ut code og lag token request.
 --data-urlencode 'client_id=oidc_idporten_test_client' \
 --data-urlencode 'redirect_uri=https://oidc-test-client.test.tools.idporten.no/authorize/response' \
 --data-urlencode 'code_verifier=hITge41ZTC3OrdiokQsW2QivzMq01mg3IPxTpqTazZU'
+```
+Hent ut access_token fra response.
+```
 {"access_token":"...","refresh_token_expires_in":600,"refresh_token":"...","scope":"openid profile apiscope","id_token":"...","token_type":"Bearer","expires_in":120}
 ```
-Hent så ut access_token og bruk mot API som skal testes.
+Bruk `access_token` mot API som skal testes.
  
 
 ## Manuell behandling
