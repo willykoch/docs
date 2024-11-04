@@ -96,7 +96,8 @@ I denne forenklede flyten kan en syntetisk testbruker logges inn automatisk ved 
 
 Klienten leser authorization response fra location header og plukker ut code (og verifiserer state).  Klienten kaller deretter [token-endepunktet]({{site.baseurl}}/docs/idporten/oidc/oidc_protocol_token) på vanlig måte.
 
- <div class="mermaid">
+<div class="mermaid">
+sequenceDiagram
   Klient ->> OpenID Provider: HTTP GET autentiseringsforespørsel (/authorize)
   note over OpenID Provider: Automatisk autentisering basert på login_hint og implisitt samtykke til scopes
   OpenID Provider ->> Klient: HTTP response med location header med autorisasjonscode
@@ -106,7 +107,7 @@ Klienten leser authorization response fra location header og plukker ut code (og
   API ->> OpenID Provider: validere token
   OpenID Provider ->> API: token informasjon
   API->>Klient: Resultat av API-operasjon
- </div>
+</div>
 
 Under er et eksempel med bruk av Curl.  Det kuttes litt i output for å tydeliggjøre relevant informasjon.
 
@@ -121,7 +122,6 @@ Relevant fra response:
 < set-cookie: SESSION=; Max-Age=0; Expires=Thu, 1 Jan 1970 00:00:00 GMT; Path=/; Secure; HttpOnly; SameSite=Lax
 < location: https://oidc-test-client.test.tools.idporten.no/authorize/response?code=Jj_5MDvtbaYM6k-K94S4wg.IcwLOy-CkPnDzlERTcZlKA&iss=https%3A%2F%2Ftest.idporten.no&state=LzFinVZzwoTWWJNQyxCSspoBnVTh9Hk1ugJLmvKVPdU
 ```
-
 Plukk ut `code` og lag token request.
 ```
 ~ curl --location 'https://test.idporten.no/token' \
@@ -139,7 +139,6 @@ Hent ut access_token fra response.
 ```
 Bruk `access_token` mot API som skal testes.
  
-
 ## Manuell behandling
 
 Har du spesielle behov knyttet til testbrukere må du kontakte oss på servicedesk@digdir.no for manuell behandling.
