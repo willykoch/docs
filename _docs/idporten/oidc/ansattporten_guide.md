@@ -180,7 +180,7 @@ Datamodell for request:
 |resource | påkrevd|Hvilken ressurs i Altinn som etterspørres. Se kodeverk nedenfor. |
 |organizationform | Valgfri| Begrense organisasjonsvelger til at sluttbruker bare kan velge hovedenheter (`enterprise`) eller underenheter (`business`)|
 |allow_multiple_organizations| Valgfri| Dersom `true` så kan sluttbruker velge flere organisasjoner i organisasjonsvelgeren. |
-
+|allow_deleted_organizations | Valgfri| Dersin `true` så vil organisasjonsvelger vise sletta verksemder|
 
 
 der `resource` må følgje desse reglane:
