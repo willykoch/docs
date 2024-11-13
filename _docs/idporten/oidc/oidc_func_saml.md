@@ -42,12 +42,14 @@ For innlogging mapper OIDC-protokollen sin *authorization code*-flyt svært bra 
 
 SAML-proxy er tilgjengelig produksjonsmiljøet og testmiljøet. [Oversikt over IP-adresser]({{site.baseurl}}/docs/general/IP)
 
-|Miljø |IDP|Domene| 
-|-|-|
-|PROD|https://saml2.idporten.no/idp6|saml2.idporten.no|
-|~~PROD~~|~~idporten.difi.no-v5~~|~~idporten.difi.no~~|
-|TEST|https://saml2.test.idporten.no/idp5|saml2.test.idporten.no|
-|~~TEST~~|~~idporten-ver2.difi.no-v4~~|~~idporten-ver2.difi.no~~|
+|Miljø |IDP|Domene| |
+|-|-|-|
+|PROD|https://saml2.idporten.no/idp7|saml2.idporten.no||
+|PROD|https://saml2.idporten.no/idp6|saml2.idporten.no||
+|~~PROD~~|~~idporten.difi.no-v5~~|~~idporten.difi.no~~||
+|TEST|https://saml2.test.idporten.no/idp6|saml2.test.idporten.no||
+|TEST|https://saml2.test.idporten.no/idp5|saml2.test.idporten.no||
+|~~TEST~~|~~idporten-ver2.difi.no-v4~~|~~idporten-ver2.difi.no~~||
 
 ### ID-porten sine metadata
 
@@ -55,13 +57,14 @@ SAML-proxy er tilgjengelig produksjonsmiljøet og testmiljøet. [Oversikt over I
 
 ### Metadata
 
-|Miljø |IDP|Metadata| 
-|-|-|
-|PROD|https://saml2.idporten.no/idp7|[https://saml2.idporten.no/idp7](https://saml2.idporten.no/idp7) <br> Signert: [https://saml2.idporten.no/idp7?sign=true](https://saml2.idporten.no/idp7?sign=true)|
-|PROD|https://saml2.idporten.no/idp6|[https://saml2.idporten.no/idp6](https://saml2.idporten.no/idp6) <br> Signert: [https://saml2.idporten.no/idp6?sign=true](https://saml2.idporten.no/idp6?sign=true)|
-|~~PROD~~|~~idporten.difi.no-v5~~||
-|TEST|https://saml2.test.idporten.no/idp5|[https://saml2.test.idporten.no/idp5](https://saml2.test.idporten.no/idp5) <br> Signert: [https://saml2.test.idporten.no/idp5?sign=true](https://saml2.test.idporten.no/idp5)|
-|~~TEST~~|~~idporten-ver2.difi.no-v4~~||
+|Miljø |IDP|Metadata|Gyldig|
+|-|-|-|
+|PROD|https://saml2.idporten.no/idp7|[https://saml2.idporten.no/idp7](https://saml2.idporten.no/idp7) <br> Signert: [https://saml2.idporten.no/idp7?sign=true](https://saml2.idporten.no/idp7?sign=true)||
+|PROD|https://saml2.idporten.no/idp6|[https://saml2.idporten.no/idp6](https://saml2.idporten.no/idp6) <br> Signert: [https://saml2.idporten.no/idp6?sign=true](https://saml2.idporten.no/idp6?sign=true)||
+|~~PROD~~|~~idporten.difi.no-v5~~|||
+|TEST|https://saml2.test.idporten.no/idp6|[https://saml2.test.idporten.no/idp6](https://saml2.test.idporten.no/idp6) <br> Signert: [https://saml2.test.idporten.no/idp6?sign=true](https://saml2.test.idporten.no/idp6)||
+|TEST|https://saml2.test.idporten.no/idp5|[https://saml2.test.idporten.no/idp5](https://saml2.test.idporten.no/idp5) <br> Signert: [https://saml2.test.idporten.no/idp5?sign=true](https://saml2.test.idporten.no/idp5)||
+|~~TEST~~|~~idporten-ver2.difi.no-v4~~|||
 
 Oversikt metadata: [https://saml2.idporten.no](https://saml2.idporten.no)
 
