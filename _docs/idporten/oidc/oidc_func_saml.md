@@ -57,6 +57,7 @@ SAML-proxy er tilgjengelig produksjonsmiljøet og testmiljøet. [Oversikt over I
 
 |Miljø |IDP|Metadata| 
 |-|-|
+|PROD|https://saml2.idporten.no/idp7|[https://saml2.idporten.no/idp7](https://saml2.idporten.no/idp7) <br> Signert: [https://saml2.idporten.no/idp7?sign=true](https://saml2.idporten.no/idp7?sign=true)|
 |PROD|https://saml2.idporten.no/idp6|[https://saml2.idporten.no/idp6](https://saml2.idporten.no/idp6) <br> Signert: [https://saml2.idporten.no/idp6?sign=true](https://saml2.idporten.no/idp6?sign=true)|
 |~~PROD~~|~~idporten.difi.no-v5~~||
 |TEST|https://saml2.test.idporten.no/idp5|[https://saml2.test.idporten.no/idp5](https://saml2.test.idporten.no/idp5) <br> Signert: [https://saml2.test.idporten.no/idp5?sign=true](https://saml2.test.idporten.no/idp5)|
